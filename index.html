@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#82977c">
+  <title>WayFinder | Campus Navigation</title>
+  <link rel="stylesheet" href="wayfinder.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M16 8l-2.5 5.5L8 16l2.5-5.5Z"></path>
+        </svg>
+      </span>
+      WayFinder<span class="brand-dot">.</span>
+    </a>
+
+    <nav class="navigation glass" aria-label="Main navigation">
+      <a href="#home" data-page="home" aria-current="page">Home</a>
+      <a href="#gate-pass" data-page="gate-pass">View gate pass</a>
+      <a href="#contact" data-page="contact">Contact us</a>
+    </nav>
+
+    <span class="campus-label">LPU / Phagwara</span>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="page home-layout">
+      <div class="home-intro">
+        <p class="eyebrow">A LITTLE CAMPUS COMPANION</p>
+
+        <h1>Find your way.<br><em>Feel at home.</em></h1>
+
+        <p class="intro-copy">
+          New here or just taking a new route?
+          Your next stop is closer than you think.
+        </p>
+
+        <a class="button primary" href="#gate-pass">
+          View my gate pass
+        </a>
+
+        <article class="journey-preview">
+          <div class="card-heading">
+            <span class="eyebrow">YOUR FIRST JOURNEY</span>
+            <span class="badge">Sample pass</span>
+          </div>
+
+          <div class="route">
+            <div class="route-stop start">
+              <span class="label">START AT</span>
+              <strong>Main Gate</strong>
+            </div>
+
+            <div class="route-stop destination">
+              <span class="label">DESTINATION</span>
+              <strong>BLOCK 34-209</strong>
+            </div>
+          </div>
+
+          <button id="open-sample" class="text-button">
+            Explore this route
+          </button>
+        </article>
+
+        <p class="quiet-note">
+          A map in hand. A little more confidence.
+        </p>
+      </div>
+
+      <article class="map-card">
+        <div class="map-header">
+          <div>
+            <p class="eyebrow">EXPLORE THE CAMPUS</p>
+            <h2>Your campus, connected.</h2>
+          </div>
+          <span class="badge">Campus map</span>
+        </div>
+
+        <div class="map-stage">
+          <div class="map-caption glass">
+            Follow the colours. Find your place.
+          </div>
+
+          <div id="map-viewport" class="map-viewport"
+               tabindex="0"
+               aria-label="Campus map. Zoom using the buttons, then scroll.">
+            <img
+              id="campus-map"
+              src="lpusimple.jpeg"
+              alt="LPU campus map showing labelled blocks and coloured routes."
+              width="853"
+              height="1280">
+          </div>
+
+          <div class="map-controls glass" aria-label="Map controls">
+            <button id="zoom-out" aria-label="Zoom out">−</button>
+            <button id="zoom-fit" aria-label="Fit map">Fit</button>
+            <button id="zoom-in" aria-label="Zoom in">+</button>
+          </div>
+        </div>
+
+        <p id="map-error" class="notice" hidden>
+          Put lpusimple.jpeg in the same folder as this HTML file
+          to display the map.
+        </p>
+
+        <div class="map-legend">
+          <span class="label">SAMPLE ROUTE</span>
+          <span class="legend-item red">G–1</span>
+          <span class="legend-item orange">1–2</span>
+          <span class="legend-item purple">2–6</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- GATE PASSES -->
+    <section id="gate-pass" class="page" hidden>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">GOOD DIRECTIONS. LESS GUESSWORK.</p>
+          <h1>Your next stop,<br><em>all in one place.</em></h1>
+          <p class="intro-copy">
+            Keep your campus journeys close. Open a pass to get going.
+          </p>
+        </div>
+
+        <button class="button primary" id="create-pass-button">
+          + Create new pass
+        </button>
+      </div>
+
+      <div class="section-heading">
+        <h2>My gate passes <span id="pass-count" class="badge">1</span></h2>
+        <span>Two ways to follow every journey</span>
+      </div>
+
+      <div id="pass-grid" class="pass-grid"></div>
+
+      <p id="storage-message" class="quiet-note">
+        New passes are saved in this browser on this device.
+      </p>
+
+      <p class="small-note">
+        WayFinder passes are navigation guides, not campus entry permissions.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page contact-layout" hidden>
+      <div class="contact-art" aria-hidden="true">
+        <div class="orbit"></div>
+        <div class="orbit inner"></div>
+
+        <div class="compass-tile glass">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M16 8l-2.5 5.5L8 16l2.5-5.5Z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">A FRIENDLY POINT IN THE RIGHT DIRECTION</p>
+        <h1>A little lost?<br><em>We’re right here.</em></h1>
+
+        <p class="intro-copy">
+          If you have any queries or problems navigating,
+          feel free to contact us at:
+        </p>
+
+        <a class="contact-link" href="tel:9900010000">
+          <span class="label">PHONE NUMBER</span>
+          <strong>99000-10000</strong>
+        </a>
+
+        <a class="contact-link" href="mailto:lpuwayfinder@example.com">
+          <span class="label">EMAIL US</span>
+          <strong>lpuwayfinder@example.com</strong>
+        </a>
+
+        <a class="button secondary" href="#home">
+          Back to the campus map
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>WayFinder / A little direction goes a long way.</span>
+    <span>Made for your campus journey.</span>
+  </footer>
+
+  <!-- EXPANDED GATE PASS -->
+  <dialog id="pass-dialog" class="modal glass"
+          aria-labelledby="pass-dialog-title">
+    <div class="dialog-header">
+      <p class="eyebrow">YOUR DIGITAL GATE PASS</p>
+      <button class="close-button" data-close
+              aria-label="Close gate pass">×</button>
+    </div>
+
+    <div class="dialog-intro">
+      <span id="pass-badge" class="badge">Sample pass</span>
+      <h2 id="pass-dialog-title">Your journey, made simple.</h2>
+
+      <div class="journey-details">
+        <div>
+          <span class="label">BEGINNING PLACE</span>
+          <strong id="pass-beginning"></strong>
+        </div>
+
+        <span class="journey-line" aria-hidden="true"></span>
+
+        <div>
+          <span class="label">DESTINATION</span>
+          <strong id="pass-destination"></strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="direction-tabs" role="tablist"
+         aria-label="Direction type">
+      <button id="map-tab" role="tab" data-mode="map"
+              aria-selected="true" aria-controls="map-panel">
+        On map
+      </button>
+
+      <button id="rough-tab" role="tab" data-mode="rough"
+              aria-selected="false" aria-controls="rough-panel"
+              tabindex="-1">
+        Rough directions
+      </button>
+    </div>
+
+    <div id="map-panel" class="direction-panel map-directions"
+         role="tabpanel" aria-labelledby="map-tab">
+      <div>
+        <h3>Follow the coloured route</h3>
+        <p class="panel-description">
+          Match each step with the points on the map.
+        </p>
+        <ol id="map-instructions" class="instruction-list"></ol>
+      </div>
+
+      <figure class="mini-map">
+        <img src="lpusimple.jpeg"
+             alt="LPU campus map with coloured route lines.">
+        <figcaption>
+          <a id="full-map-link" href="#home">Explore the full map</a>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div id="rough-panel" class="direction-panel"
+         role="tabpanel" aria-labelledby="rough-tab" hidden>
+      <h3>Let the landmarks lead you</h3>
+      <p class="panel-description">
+        Simple instructions for the way ahead.
+      </p>
+
+      <ol id="rough-instructions" class="instruction-list"></ol>
+
+      <p class="arrival-note">
+        Check the room signs when you reach your block.
+      </p>
+    </div>
+
+    <div class="dialog-footer">
+      <span>Navigation guide · Not an entry authorization</span>
+      <button class="button secondary" data-close>Done</button>
+    </div>
+  </dialog>
+
+  <!-- CREATE NEW PASS -->
+  <dialog id="create-dialog" class="modal create-modal glass"
+          aria-labelledby="create-title">
+    <div class="dialog-header">
+      <p class="eyebrow">A NEW WAY TO GET THERE</p>
+      <button class="close-button" data-close
+              aria-label="Close create pass">×</button>
+    </div>
+
+    <div class="dialog-intro">
+      <h2 id="create-title">Make it your journey.</h2>
+      <p class="panel-description">
+        Add your starting point, destination and both sets of directions.
+      </p>
+    </div>
+
+    <form id="pass-form">
+      <div class="form-row">
+        <label>
+          Beginning place
+          <input id="beginning-input" name="beginning"
+                 placeholder="e.g. Main Gate"
+                 maxlength="100" required autocomplete="off">
+        </label>
+
+        <label>
+          Destination
+          <input id="destination-input" name="destination"
+                 placeholder="e.g. BLOCK 34-209"
+                 maxlength="100" required autocomplete="off">
+        </label>
+      </div>
+
+      <label>
+        On map directions
+        <span class="field-hint">
+          Add one step per line. Include colours and map point numbers.
+        </span>
+        <textarea id="map-input" name="mapDirections"
+                  rows="4" maxlength="6000" required
+                  placeholder="Follow the red line from G to 1."></textarea>
+      </label>
+
+      <label>
+        Rough directions
+        <span class="field-hint">
+          Add one step per line, using campus landmarks.
+        </span>
+        <textarea id="rough-input" name="roughDirections"
+                  rows="4" maxlength="6000" required
+                  placeholder="Go straight from Main Gate to Robo Park."></textarea>
+      </label>
+
+      <p class="form-note">
+        You enter the directions for your route.
+        Every pass uses the supplied campus map.
+      </p>
+
+      <p id="form-error" class="error-message" role="alert" hidden></p>
+
+      <div class="form-actions">
+        <button id="use-sample" class="text-button" type="button">
+          Use sample route
+        </button>
+
+        <div>
+          <button class="button secondary" type="button" data-close>
+            Cancel
+          </button>
+          <button class="button primary" type="submit">
+            Create pass
+          </button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast glass" role="status" hidden></div>
+
+  <noscript>
+    <p class="notice">
+      Enable JavaScript to switch pages and use gate passes.
+    </p>
+  </noscript>
+
+  <script>
+    "use strict";
+
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => [...document.querySelectorAll(selector)];
+    const storageKey = "wayfinder.passes.v1";
+
+    const samplePass = {
+      id: "WF-001",
+      beginning: "Main Gate",
+      destination: "BLOCK 34-209",
+      sample: true,
+      mapDirections: [
+        "Stay on the red line from G to 1.",
+        "Change to the orange line from 1 to 2.",
+        "Change to the purple line from 2 to 6.",
+        "Enter the academic block through a gate near Block 28.",
+        "Block 34 should be on your left."
+      ],
+      roughDirections: [
+        "Go straight from Main Gate to Robo Park.",
+        "Enter the academic block through a gate near Blocks 27–28.",
+        "Block 34 should be on your left as you enter."
+      ]
+    };
+
+    let savedPasses = [];
+    let toastTimer;
+
+    function validPass(pass) {
+      return pass &&
+        typeof pass.id === "string" &&
+        typeof pass.beginning === "string" &&
+        pass.beginning.trim().length > 0 &&
+        pass.beginning.length <= 100 &&
+        typeof pass.destination === "string" &&
+        pass.destination.trim().length > 0 &&
+        pass.destination.length <= 100 &&
+        ["mapDirections", "roughDirections"].every(key =>
+          Array.isArray(pass[key]) &&
+          pass[key].length > 0 &&
+          pass[key].every(step =>
+            typeof step === "string" && step.trim().length > 0
+          ) &&
+          pass[key].join("\n").length <= 6000
+        );
+    }
+
+    try {
+      const stored = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      if (!Array.isArray(stored)) throw new Error("Invalid saved data");
+
+      savedPasses = stored
+        .filter(validPass)
+        .map(pass => ({ ...pass, sample: false }));
+    } catch {
+      $("#storage-message").textContent =
+        "Saved passes could not be loaded. New passes remain available during this visit.";
+    }
+
+    function makeElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    function showToast(message) {
+      clearTimeout(toastTimer);
+      $("#toast").textContent = message;
+      $("#toast").hidden = false;
+
+      toastTimer = setTimeout(() => {
+        $("#toast").hidden = true;
+      }, 4500);
+    }
+
+    function navigate() {
+      const requested = location.hash.slice(1) || "home";
+      const page = ["home", "gate-pass", "contact"].includes(requested)
+        ? requested
+        : "home";
+
+      $$(".page").forEach(section => {
+        section.hidden = section.id !== page;
+      });
+
+      $$("[data-page]").forEach(link => {
+        if (link.dataset.page === page) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      document.title = "WayFinder | " + {
+        home: "Campus Navigation",
+        "gate-pass": "Your Gate Passes",
+        contact: "Contact Us"
+      }[page];
+
+      window.scrollTo(0, 0);
+      if (page === "home") requestAnimationFrame(fitMap);
+    }
+
+    function renderPasses() {
+      const grid = $("#pass-grid");
+      grid.replaceChildren();
+
+      const passes = [samplePass, ...savedPasses];
+      $("#pass-count").textContent = passes.length;
+
+      passes.forEach(pass => {
+        const card = makeElement("button", "pass-card");
+        card.type = "button";
+        card.setAttribute(
+          "aria-label",
+          "Open gate pass from " + pass.beginning + " to " + pass.destination
+        );
+
+        const header = makeElement("div", "pass-card-header");
+        header.append(
+          makeElement("strong", "", "WayFinder"),
+          makeElement("span", "badge", pass.sample ? "Sample pass" : "My pass")
+        );
+
+        const route = makeElement("div", "route");
+
+        [
+          ["START AT", pass.beginning, "start"],
+          ["DESTINATION", pass.destination, "destination"]
+        ].forEach(([label, place, className]) => {
+          const stop = makeElement("div", "route-stop " + className);
+          stop.append(
+            makeElement("span", "label", label),
+            makeElement("strong", "", place)
+          );
+          route.append(stop);
+        });
+
+        const footer = makeElement("div", "pass-card-footer");
+        footer.append(
+          makeElement("span", "", "Map + rough directions"),
+          makeElement("strong", "", "Open pass")
+        );
+
+        card.append(header, route, footer);
+        card.addEventListener("click", () => openPass(pass));
+        grid.append(card);
+      });
+
+      const createCard = makeElement("button", "create-card");
+      createCard.type = "button";
+      createCard.append(
+        makeElement("span", "create-symbol", "+"),
+        makeElement("strong", "", "Create new pass"),
+        makeElement("span", "", "A new destination. Your own directions.")
+      );
+      createCard.addEventListener("click", openCreate);
+      grid.append(createCard);
+    }
+
+    function renderInstructions(selector, steps, colourSteps) {
+      const list = $(selector);
+      list.replaceChildren();
+
+      steps.forEach((step, index) => {
+        const item = makeElement("li", "instruction");
+        const colour = colourSteps && index < 3
+          ? ["red", "orange", "purple"][index]
+          : "";
+
+        item.append(
+          makeElement("span", "step-number " + colour, index + 1),
+          makeElement("span", "", step)
+        );
+
+        list.append(item);
+      });
+    }
+
+    function selectDirection(mode, focus = false) {
+      $$("[data-mode]").forEach(button => {
+        const selected = button.dataset.mode === mode;
+        button.setAttribute("aria-selected", String(selected));
+        button.tabIndex = selected ? 0 : -1;
+        if (focus && selected) button.focus();
+      });
+
+      $("#map-panel").hidden = mode !== "map";
+      $("#rough-panel").hidden = mode !== "rough";
+    }
+
+    function openPass(pass) {
+      $("#pass-beginning").textContent = pass.beginning;
+      $("#pass-destination").textContent = pass.destination;
+      $("#pass-badge").textContent =
+        pass.sample ? "Sample pass · WF-001" : "My campus journey";
+
+      renderInstructions(
+        "#map-instructions", pass.mapDirections, pass.sample
+      );
+      renderInstructions(
+        "#rough-instructions", pass.roughDirections, false
+      );
+
+      selectDirection("map");
+      $("#pass-dialog").showModal();
+      $("#pass-dialog").scrollTop = 0;
+    }
+
+    function openCreate() {
+      $("#pass-form").reset();
+      $("#form-error").hidden = true;
+      $("#create-dialog").showModal();
+      $("#create-dialog").scrollTop = 0;
+      $("#beginning-input").focus();
+    }
+
+    $("#open-sample").addEventListener("click", () => openPass(samplePass));
+    $("#create-pass-button").addEventListener("click", openCreate);
+
+    $$("[data-close]").forEach(button => {
+      button.addEventListener("click", () => {
+        button.closest("dialog").close();
+      });
+    });
+
+    $$("dialog").forEach(dialog => {
+      dialog.addEventListener("click", event => {
+        const bounds = dialog.getBoundingClientRect();
+        const outside =
+          event.clientX < bounds.left ||
+          event.clientX > bounds.right ||
+          event.clientY < bounds.top ||
+          event.clientY > bounds.bottom;
+
+        if (event.target === dialog && outside) dialog.close();
+      });
+    });
+
+    $$("[data-mode]").forEach(button => {
+      button.addEventListener("click", () => {
+        selectDirection(button.dataset.mode);
+      });
+    });
+
+    $(".direction-tabs").addEventListener("keydown", event => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const mode = event.key === "Home" ? "map"
+        : event.key === "End" ? "rough"
+        : $("#map-tab").getAttribute("aria-selected") === "true"
+          ? "rough" : "map";
+
+      selectDirection(mode, true);
+    });
+
+    $("#full-map-link").addEventListener("click", () => {
+      $("#pass-dialog").close();
+      if (location.hash === "#home") requestAnimationFrame(fitMap);
+    });
+
+    $("#use-sample").addEventListener("click", () => {
+      $("#beginning-input").value = samplePass.beginning;
+      $("#destination-input").value = samplePass.destination;
+      $("#map-input").value = samplePass.mapDirections.join("\n");
+      $("#rough-input").value = samplePass.roughDirections.join("\n");
+    });
+
+    $("#pass-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const readSteps = selector => $(selector).value
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+
+      const pass = {
+        id: "WF-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+        beginning: $("#beginning-input").value.trim(),
+        destination: $("#destination-input").value.trim(),
+        mapDirections: readSteps("#map-input"),
+        roughDirections: readSteps("#rough-input"),
+        sample: false
+      };
+
+      if (!validPass(pass)) {
+        $("#form-error").textContent =
+          "Enter a beginning place, a destination and at least one step in each directions field.";
+        $("#form-error").hidden = false;
+        return;
+      }
+
+      savedPasses.push(pass);
+      let saved = false;
+
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(savedPasses));
+        saved = true;
+        $("#storage-message").textContent =
+          "New passes are saved in this browser on this device.";
+      } catch {
+        $("#storage-message").textContent =
+          "Browser storage is unavailable or full. This new pass is available during this visit only.";
+      }
+
+      renderPasses();
+      $("#create-dialog").close();
+      location.hash = "gate-pass";
+      navigate();
+
+      showToast(saved
+        ? "Your new pass is ready."
+        : "Pass created for this visit. Browser storage is unavailable."
+      );
+    });
+
+    let zoom = 1;
+    let fittedWidth = 360;
+
+    function updateZoom() {
+      $("#campus-map").style.width = Math.round(fittedWidth * zoom) + "px";
+      $("#zoom-out").disabled = zoom <= 1;
+      $("#zoom-in").disabled = zoom >= 3;
+      $("#zoom-fit").textContent =
+        zoom === 1 ? "Fit" : Math.round(zoom * 100) + "%";
+    }
+
+    function fitMap() {
+      const viewport = $("#map-viewport");
+      if (!viewport.clientWidth) return;
+
+      const map = $("#campus-map");
+      const ratio = map.naturalWidth && map.naturalHeight
+        ? map.naturalWidth / map.naturalHeight
+        : 853 / 1280;
+
+      fittedWidth = Math.max(
+        100,
+        Math.min(
+          viewport.clientWidth - 40,
+          (viewport.clientHeight - 36) * ratio
+        )
+      );
+
+      zoom = 1;
+      updateZoom();
+      viewport.scrollTop = 0;
+      viewport.scrollLeft = 0;
+    }
+
+    $("#zoom-in").addEventListener("click", () => {
+      zoom = Math.min(3, zoom + 0.5);
+      updateZoom();
+    });
+
+    $("#zoom-out").addEventListener("click", () => {
+      zoom = Math.max(1, zoom - 0.5);
+      updateZoom();
+    });
+
+    $("#zoom-fit").addEventListener("click", fitMap);
+    $("#campus-map").addEventListener("load", fitMap);
+    $("#campus-map").addEventListener("error", () => {
+      $("#map-error").hidden = false;
+    });
+
+    if ($("#campus-map").complete && !$("#campus-map").naturalWidth) {
+      $("#map-error").hidden = false;
+    }
+
+    window.addEventListener("resize", fitMap);
+    window.addEventListener("hashchange", navigate);
+
+    renderPasses();
+    navigate();
+  </script>
+</body>
+</html>
